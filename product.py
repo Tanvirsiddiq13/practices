@@ -1,13 +1,22 @@
-from collections import Counter
+def arrange_data(student_number):
+    scores = {}
+    
+    for _ in range(student_number):
+        student_id = input("student id:")
+        score = int(input("score:"))
+        scores[student_id] = score
+    
+    sorted_scores = sorted(scores.items())
 
-number_of_shoes = int(input())
-shoes_size = Counter(map(int, input().split()))
-number_of_costomar = int(input())
-income = 0
-for _ in range(number_of_costomar):
-    size, prices = map(int, input().split())
-    if shoes_size[size] > 0:
-        income += prices
-        shoes_size[size] -= 1
-print(income)
+    for student, score in sorted_scores:
+
+        print(f"Student ID: {student}, Score: {score}")
+        if score > 59:
+            print(f"student id {student} is pass")
+        else:
+            print(f"student id {student} is fail")
+
+if __name__ == "__main__":
+    student_number = int(input("student number:"))
+    arrange_data(student_number)
 
